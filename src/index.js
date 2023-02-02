@@ -43,10 +43,10 @@ formEl.addEventListener('submit', async e => {
 });
 buttonLoadMore.addEventListener('click', async () => {
   try {
-    photos = await getPhotos(search);
+    let photos = await getPhotos(search);
     let photoIsFinished = getCounter(photos.page, photos.photos.totalHits);
     buttonIsHidden(photoIsFinished);
-    markup = getmarkup(photos.photos);
+    let markup = getmarkup(photos.photos);
     getGallery(markup);
 
     lightbox.refresh();
