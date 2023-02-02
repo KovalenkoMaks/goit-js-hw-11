@@ -21,27 +21,25 @@ formEl.addEventListener('submit', async e => {
 
   try {
     let photos = await getPhotos(search);
-
-    if (!photos.photos.totalHits) {
+    const total = photos.photos.totalHits;
+    if (!total) {
       Notiflix.Notify.warning(
         'Sorry, there are no images matching your search query. Please try again.'
       );
       return;
     }
 
-    Notiflix.Notify.success(
-      `Hooray! We found ${photos.photos.totalHits} images.`
-    );
+    Notiflix.Notify.success(`Hooray! We found ${total} images.`);
 
-    getCounter(photos.page, photos.photos.totalHits);
+    getCounter(photos.page, total);
     let markup = getmarkup(photos.photos);
     getGallery(markup);
     lightbox.refresh();
 
     buttonLoadMore.classList.remove('isHidden');
-  } catch (error) {
-    console.log(error.message);
-  }
+  } //catch (error) {
+   // console.log(error.message);
+  //}
 });
 buttonLoadMore.addEventListener('click', async () => {
   try {
@@ -52,9 +50,9 @@ buttonLoadMore.addEventListener('click', async () => {
     getGallery(markup);
 
     lightbox.refresh();
-  } catch (error) {
-    console.log(error.message);
-  }
+  } //catch (error) {
+    //console.log(error.message);
+  //}
 });
 
 // window.addEventListener('scroll', () => {
