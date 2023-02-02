@@ -37,9 +37,9 @@ formEl.addEventListener('submit', async e => {
     lightbox.refresh();
 
     buttonLoadMore.classList.remove('isHidden');
-  } //catch (error) {
-   // console.log(error.message);
-  //}
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 buttonLoadMore.addEventListener('click', async () => {
   try {
@@ -50,9 +50,9 @@ buttonLoadMore.addEventListener('click', async () => {
     getGallery(markup);
 
     lightbox.refresh();
-  } //catch (error) {
-    //console.log(error.message);
-  //}
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 // window.addEventListener('scroll', () => {
